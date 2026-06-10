@@ -1,9 +1,27 @@
+import { useEffect, useRef } from 'react'
 import videoframe from '../assets/videoframe.png'
+import heroPoster from '../assets/hero-poster.jpg'
 import campaignVideo from '../assets/RushHour-CampaignVideo.mp4'
 import { TESTFLIGHT_URL } from '../constants/links'
-import LazyVideo from './LazyVideo'
 
 export default function Hero() {
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return undefined
+
+    const play = () => {
+      const attempt = video.play()
+      if (attempt?.catch) attempt.catch(() => {})
+    }
+
+    video.addEventListener('loadeddata', play)
+    if (video.readyState >= 2) play()
+
+    return () => video.removeEventListener('loadeddata', play)
+  }, [])
+
   return (
     <section className="hero section-animate section-hero section-active" id="about">
       <div className="snap-section-inner hero-layout">
@@ -27,9 +45,15 @@ export default function Hero() {
           <div className="hero-video anim-item">
             <img src={videoframe} alt="" className="hero-video-frame" />
             <div className="hero-video-inner">
-              <LazyVideo
+              <video
+                ref={videoRef}
                 src={campaignVideo}
-                eager
+                poster={heroPoster}
+                preload="auto"
+                autoPlay
+                muted
+                loop
+                playsInline
                 className="hero-campaign-video"
               />
             </div>
