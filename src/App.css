@@ -32,6 +32,11 @@ main > section {
   padding: var(--header-offset) 0 calc(24px + var(--safe-bottom));
 }
 
+/* iOS Safari won't paint video inside overflow:hidden sections */
+main > section.section-hero {
+  overflow: visible;
+}
+
 .snap-section-inner {
   width: 100%;
   max-width: 1280px;
@@ -212,9 +217,7 @@ main > section {
   position: absolute;
   inset: 28px 22px 22px;
   z-index: 1;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #000;
+  overflow: visible;
 }
 
 .hero-campaign-video {
@@ -222,7 +225,10 @@ main > section {
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 10px;
   background: #000;
+  transform: none;
+  -webkit-transform: none;
 }
 
 /* How It Works */
@@ -778,6 +784,10 @@ main > section {
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+  }
+
+  main > section.section-hero {
+    overflow: visible;
   }
 
   .section-title {

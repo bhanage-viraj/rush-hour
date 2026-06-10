@@ -3,17 +3,26 @@ import videoframe from '../assets/videoframe.png'
 import { TESTFLIGHT_URL } from '../constants/links'
 
 const CAMPAIGN_VIDEO = '/campaign-video.mp4'
+const CAMPAIGN_POSTER = '/campaign-poster.jpg'
 
-function startPlayback(video) {
-  if (!video) return
+function configureForMobile(video) {
   video.muted = true
+  video.defaultMuted = true
+  video.playsInline = true
   video.setAttribute('muted', '')
   video.setAttribute('playsinline', '')
   video.setAttribute('webkit-playsinline', '')
+  video.setAttribute('x-webkit-airplay', 'allow')
+}
 
-  const attempt = video.play()
-  if (attempt?.catch) {
-    attempt.catch(() => {})
+async function tryPlay(video) {
+  if (!video) return
+  configureForMobile(video)
+  try {
+    await video.play()
+    video.removeAttribute('poster')
+  } catch {
+    /* iOS may block until first touch — handled below */
   }
 }
 
@@ -24,10 +33,20 @@ export default function Hero() {
     const video = videoRef.current
     if (!video) return undefined
 
-    const handleReady = () => startPlayback(video)
+    configureForMobile(video)
+
+    const handleReady = () => {
+      void tryPlay(video)
+    }
+
+    const unlockOnTouch = () => {
+      void tryPlay(video)
+    }
 
     video.addEventListener('loadeddata', handleReady)
     video.addEventListener('canplay', handleReady)
+    video.addEventListener('canplaythrough', handleReady)
+    document.addEventListener('touchstart', unlockOnTouch, { passive: true })
     document.addEventListener('visibilitychange', handleReady)
 
     if (video.readyState >= 2) handleReady()
@@ -35,6 +54,8 @@ export default function Hero() {
     return () => {
       video.removeEventListener('loadeddata', handleReady)
       video.removeEventListener('canplay', handleReady)
+      video.removeEventListener('canplaythrough', handleReady)
+      document.removeEventListener('touchstart', unlockOnTouch)
       document.removeEventListener('visibilitychange', handleReady)
     }
   }, [])
@@ -65,6 +86,7 @@ export default function Hero() {
               <video
                 ref={videoRef}
                 src={CAMPAIGN_VIDEO}
+                poster={CAMPAIGN_POSTER}
                 preload="auto"
                 autoPlay
                 muted
