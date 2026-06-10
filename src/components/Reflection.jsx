@@ -4,12 +4,16 @@ import reflectionFive from '../assets/reflection/five.mp4'
 import reflectionTwo from '../assets/reflection/two.mp4'
 import reflectionThree from '../assets/reflection/three.mp4'
 import reflectionFour from '../assets/reflection/four.mp4'
+import reflectionSix from '../assets/reflection/six.mp4'
+import reflectionSeven from '../assets/reflection/seven.mp4'
 
 const videos = [
   { src: reflectionFive, label: 'Reflection clip 1' },
   { src: reflectionThree, label: 'Reflection clip 2' },
   { src: reflectionTwo, label: 'Reflection clip 3' },
   { src: reflectionFour, label: 'Reflection clip 4' },
+  { src: reflectionSix, label: 'Reflection clip 5' },
+  { src: reflectionSeven, label: 'Reflection clip 6' },
 ]
 
 export default function Reflection() {

@@ -1,4 +1,6 @@
-import whyPhones from '../assets/why-phones.png'
+import homeSet from '../assets/home-set.png'
+import homeSet2 from '../assets/home-set-2.png'
+import homeSet3 from '../assets/home-set-3.png'
 
 const reasons = [
   {
@@ -26,11 +28,23 @@ export default function WhyItWorks() {
     <section className="why-it-works section-animate section-why" id="why-it-works">
       <div className="snap-section-inner why-content">
         <div className="why-phones">
-          <img
-            src={whyPhones}
-            alt="Rush Hour app showing focus timer, recording session, and weekly statistics"
-            className="why-phones-img"
-          />
+          <div className="why-phones-stack" aria-hidden="true">
+            <img
+              src={homeSet}
+              alt=""
+              className="why-phone why-phone-left"
+            />
+            <img
+              src={homeSet2}
+              alt="Rush Hour app focus timer and recording session"
+              className="why-phone why-phone-center"
+            />
+            <img
+              src={homeSet3}
+              alt=""
+              className="why-phone why-phone-right"
+            />
+          </div>
         </div>
 
         <div className="why-right">

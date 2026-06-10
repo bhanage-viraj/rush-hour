@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import teamCardFrame from '../assets/team-card-frame.png'
 import marleen from '../assets/team/marleen.png'
 import dori from '../assets/team/dori.png'
 import viraj from '../assets/team/viraj.png'
@@ -110,38 +111,47 @@ export default function TeamModal({ open, onClose }) {
           {team.map((member) => (
             <article key={member.name} className="team-card">
               <div className="team-card-inner">
-                <div className="team-card-perforated" aria-hidden="true" />
+                <img
+                  src={teamCardFrame}
+                  alt=""
+                  className="team-card-frame"
+                  aria-hidden="true"
+                />
                 <div className="team-card-body">
-                  <div className="team-photo-wrap">
-                    <img
-                      src={member.photo}
-                      alt={member.name}
-                      className="team-photo"
-                    />
+                  <div className="team-photo-slot">
+                    <div className="team-photo-wrap">
+                      <img
+                        src={member.photo}
+                        alt={member.name}
+                        className="team-photo"
+                      />
+                    </div>
                   </div>
-                  <h3>{member.name}</h3>
-                  <p className="team-role">{member.role}</p>
-                  <div className="team-social">
-                    {member.linkedin && (
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${member.name} on LinkedIn`}
-                      >
-                        <LinkedInIcon />
-                      </a>
-                    )}
-                    {member.instagram && (
-                      <a
-                        href={member.instagram}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${member.name} on Instagram`}
-                      >
-                        <InstagramIcon />
-                      </a>
-                    )}
+                  <div className="team-card-info">
+                    <h3>{member.name}</h3>
+                    <p className="team-role">{member.role}</p>
+                    <div className="team-social">
+                      {member.linkedin && (
+                        <a
+                          href={member.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${member.name} on LinkedIn`}
+                        >
+                          <LinkedInIcon />
+                        </a>
+                      )}
+                      {member.instagram && (
+                        <a
+                          href={member.instagram}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${member.name} on Instagram`}
+                        >
+                          <InstagramIcon />
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
