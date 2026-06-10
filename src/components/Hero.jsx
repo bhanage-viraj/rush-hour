@@ -1,12 +1,12 @@
 import { useEffect, useRef } from 'react'
 import videoframe from '../assets/videoframe.png'
-import campaignVideo from '../assets/RushHour-CampaignVideo.mp4'
 import { TESTFLIGHT_URL } from '../constants/links'
+
+const CAMPAIGN_VIDEO = '/campaign-video.mp4'
 
 function startPlayback(video) {
   if (!video) return
   video.muted = true
-  video.defaultMuted = true
   video.setAttribute('muted', '')
   video.setAttribute('playsinline', '')
   video.setAttribute('webkit-playsinline', '')
@@ -25,11 +25,9 @@ export default function Hero() {
     if (!video) return undefined
 
     const handleReady = () => startPlayback(video)
-    const handlePlaying = () => video.removeAttribute('poster')
 
     video.addEventListener('loadeddata', handleReady)
     video.addEventListener('canplay', handleReady)
-    video.addEventListener('playing', handlePlaying)
     document.addEventListener('visibilitychange', handleReady)
 
     if (video.readyState >= 2) handleReady()
@@ -37,7 +35,6 @@ export default function Hero() {
     return () => {
       video.removeEventListener('loadeddata', handleReady)
       video.removeEventListener('canplay', handleReady)
-      video.removeEventListener('playing', handlePlaying)
       document.removeEventListener('visibilitychange', handleReady)
     }
   }, [])
@@ -62,12 +59,12 @@ export default function Hero() {
         </div>
 
         <div className="hero-media">
-          <div className="hero-video anim-item">
-            <img src={videoframe} alt="" className="hero-video-frame" />
+          <div className="hero-video">
+            <img src={videoframe} alt="" className="hero-video-frame" aria-hidden="true" />
             <div className="hero-video-inner">
               <video
                 ref={videoRef}
-                src={campaignVideo}
+                src={CAMPAIGN_VIDEO}
                 preload="auto"
                 autoPlay
                 muted

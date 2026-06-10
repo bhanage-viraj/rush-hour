@@ -82,10 +82,6 @@
   transition-delay: 0.16s;
 }
 
-.section-hero.section-active .hero-video {
-  transition-delay: 0.12s;
-}
-
 /* How It Works */
 .section-how.section-active .section-title {
   transition-delay: 0.04s;
@@ -270,8 +266,7 @@
   transition-delay: 0.5s;
 }
 
-/* Promote animated layers on the GPU */
-.section-active .hero-video,
+/* Promote animated layers on the GPU — exclude hero video (breaks iOS playback) */
 .section-active .feature-card,
 .section-active .why-phone,
 .section-active .reflection-frame,
