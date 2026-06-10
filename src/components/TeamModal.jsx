@@ -7,12 +7,31 @@ import andrian from '../assets/team/andrian.png'
 import gustu from '../assets/team/gustu.png'
 
 const team = [
-  { name: 'Marleen Phangestu', role: 'Product Designer', photo: marleen },
+  {
+    name: 'Marleen Phangestu',
+    role: 'Product Designer',
+    photo: marleen,
+    linkedin: 'https://www.linkedin.com/in/marleen-phangestu',
+    instagram: 'https://www.instagram.com/marleenyen',
+  },
   { name: 'Dori (Michelle)', role: 'Product Designer', photo: dori },
   { name: 'Viraj Bhanage', role: 'iOS Developer', photo: viraj },
   { name: 'Belvanatha Gargita', role: 'iOS Developer', photo: belvanatha },
-  { name: 'Andrian', role: 'iOS Developer', photo: andrian },
-  { name: 'Gustu Ryan', role: 'iOS Developer', photo: gustu },
+  {
+    name: 'Andrian',
+    role: 'iOS Developer',
+    photo: andrian,
+    linkedin: 'https://www.linkedin.com/in/andrian-ang/',
+    instagram: 'https://www.instagram.com/anddriann',
+  },
+  {
+    name: 'Gustu Ryan',
+    role: 'iOS Developer',
+    photo: gustu,
+    linkedin:
+      'https://www.linkedin.com/in/ida-bagus-putu-ryan-paramasatya-putra-414913250',
+    instagram: 'https://www.instagram.com/ryannparama',
+  },
 ]
 
 function LinkedInIcon() {
@@ -103,12 +122,26 @@ export default function TeamModal({ open, onClose }) {
                   <h3>{member.name}</h3>
                   <p className="team-role">{member.role}</p>
                   <div className="team-social">
-                    <a href="#" aria-label={`${member.name} on LinkedIn`}>
-                      <LinkedInIcon />
-                    </a>
-                    <a href="#" aria-label={`${member.name} on Instagram`}>
-                      <InstagramIcon />
-                    </a>
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${member.name} on LinkedIn`}
+                      >
+                        <LinkedInIcon />
+                      </a>
+                    )}
+                    {member.instagram && (
+                      <a
+                        href={member.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${member.name} on Instagram`}
+                      >
+                        <InstagramIcon />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
