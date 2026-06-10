@@ -1,5 +1,6 @@
 import logo from '../assets/logo.png'
 import { TESTFLIGHT_URL } from '../constants/links'
+import LazyVideo from './LazyVideo'
 import reflectionFive from '../assets/reflection/five.mp4'
 import reflectionTwo from '../assets/reflection/two.mp4'
 import reflectionThree from '../assets/reflection/three.mp4'
@@ -29,12 +30,8 @@ export default function Reflection() {
         <div className="reflection-frames">
           {videos.map((video) => (
             <div key={video.label} className="reflection-frame">
-              <video
+              <LazyVideo
                 src={video.src}
-                autoPlay
-                muted
-                loop
-                playsInline
                 className="reflection-video"
                 aria-label={video.label}
               />

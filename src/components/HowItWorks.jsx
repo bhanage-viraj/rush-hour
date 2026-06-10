@@ -1,5 +1,6 @@
 import dorivdo from '../assets/dorivdo.mp4'
 import doriTrafficLight from '../assets/doritrafficlight.png'
+import LazyVideo from './LazyVideo'
 import focusCard from '../assets/how-frame-focus.png'
 import reviewCard from '../assets/how-frame-review.png'
 
@@ -12,14 +13,7 @@ function RecordCard() {
         <div className="record-media">
           <div className="record-video-stack">
             <div className="record-video-frame">
-              <video
-                src={dorivdo}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="record-video"
-              />
+              <LazyVideo src={dorivdo} className="record-video" />
               <div className="record-overlay">
                 <p className="record-session">Morning Session Rush!</p>
                 <p className="record-time">3h 20m</p>

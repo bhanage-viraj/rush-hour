@@ -1,6 +1,7 @@
 import videoframe from '../assets/videoframe.png'
 import campaignVideo from '../assets/RushHour-CampaignVideo.mp4'
 import { TESTFLIGHT_URL } from '../constants/links'
+import LazyVideo from './LazyVideo'
 
 export default function Hero() {
   return (
@@ -26,12 +27,9 @@ export default function Hero() {
           <div className="hero-video anim-item">
             <img src={videoframe} alt="" className="hero-video-frame" />
             <div className="hero-video-inner">
-              <video
+              <LazyVideo
                 src={campaignVideo}
-                autoPlay
-                muted
-                loop
-                playsInline
+                eager
                 className="hero-campaign-video"
               />
             </div>
