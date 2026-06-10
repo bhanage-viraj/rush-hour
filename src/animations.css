@@ -1,0 +1,239 @@
+/* Lightweight full-screen wipe — GPU transform only */
+.page-wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.22);
+  transform: translate3d(0, 100%, 0);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.page-wipe.page-wipe--play {
+  animation: wipeSmooth 0.42s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes wipeSmooth {
+  0% {
+    transform: translate3d(0, 100%, 0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, -100%, 0);
+    opacity: 0;
+  }
+}
+
+.site > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Subtle per-section background */
+.site.site-section-0 {
+  background-color: #3d8ef0;
+}
+
+.site.site-section-1 {
+  background-color: #3688ea;
+}
+
+.site.site-section-2 {
+  background-color: #3082e4;
+}
+
+.site.site-section-3 {
+  background-color: #3b82f6;
+}
+
+.site {
+  transition: background-color 0.5s ease;
+}
+
+/* Smooth reveal — transitions instead of heavy keyframes */
+.section-animate .anim-item {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.section-animate.section-active .anim-item {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Hero stagger */
+.section-hero.section-active .hero-title {
+  transition-delay: 0.04s;
+}
+
+.section-hero.section-active .hero-subtitle {
+  transition-delay: 0.1s;
+}
+
+.section-hero.section-active .hero-cta {
+  transition-delay: 0.16s;
+}
+
+.section-hero.section-active .hero-video {
+  transition-delay: 0.12s;
+}
+
+/* How It Works */
+.section-how.section-active .section-title {
+  transition-delay: 0.04s;
+}
+
+.section-how.section-active .section-subtitle {
+  transition-delay: 0.1s;
+}
+
+.section-how .feature-card {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition:
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.section-how.section-active .feature-card:nth-child(1) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.14s;
+}
+
+.section-how.section-active .feature-card:nth-child(2) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.22s;
+}
+
+.section-how.section-active .feature-card:nth-child(3) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.3s;
+}
+
+/* Why It Works */
+.section-why .why-phones-img,
+.section-why .why-title,
+.section-why .why-card {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition:
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.section-why.section-active .why-phones-img {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.06s;
+}
+
+.section-why.section-active .why-title {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.12s;
+}
+
+.section-why.section-active .why-card:nth-child(1) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.18s;
+}
+
+.section-why.section-active .why-card:nth-child(2) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.24s;
+}
+
+.section-why.section-active .why-card:nth-child(3) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.3s;
+}
+
+/* Reflection */
+.section-reflection .reflection-frame,
+.section-reflection .reflection-cta {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition:
+    opacity 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.section-reflection.section-active .section-title {
+  transition-delay: 0.04s;
+}
+
+.section-reflection.section-active .section-subtitle {
+  transition-delay: 0.1s;
+}
+
+.section-reflection.section-active .reflection-frame:nth-child(1) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.14s;
+}
+
+.section-reflection.section-active .reflection-frame:nth-child(2) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.2s;
+}
+
+.section-reflection.section-active .reflection-frame:nth-child(3) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.26s;
+}
+
+.section-reflection.section-active .reflection-frame:nth-child(4) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.32s;
+}
+
+.section-reflection.section-active .reflection-cta {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.38s;
+}
+
+/* Promote animated layers on the GPU */
+.section-active .hero-video,
+.section-active .feature-card,
+.section-active .why-phones-img,
+.section-active .reflection-frame,
+.section-active .reflection-video {
+  backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-wipe,
+  .section-animate .anim-item,
+  .section-how .feature-card,
+  .section-why .why-phones-img,
+  .section-why .why-title,
+  .section-why .why-card,
+  .section-reflection .reflection-frame,
+  .section-reflection .reflection-cta {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
