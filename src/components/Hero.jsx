@@ -1,8 +1,21 @@
 import { useEffect, useRef } from 'react'
 import videoframe from '../assets/videoframe.png'
-import heroPoster from '../assets/hero-poster.jpg'
 import campaignVideo from '../assets/RushHour-CampaignVideo.mp4'
 import { TESTFLIGHT_URL } from '../constants/links'
+
+function startPlayback(video) {
+  if (!video) return
+  video.muted = true
+  video.defaultMuted = true
+  video.setAttribute('muted', '')
+  video.setAttribute('playsinline', '')
+  video.setAttribute('webkit-playsinline', '')
+
+  const attempt = video.play()
+  if (attempt?.catch) {
+    attempt.catch(() => {})
+  }
+}
 
 export default function Hero() {
   const videoRef = useRef(null)
@@ -11,15 +24,22 @@ export default function Hero() {
     const video = videoRef.current
     if (!video) return undefined
 
-    const play = () => {
-      const attempt = video.play()
-      if (attempt?.catch) attempt.catch(() => {})
+    const handleReady = () => startPlayback(video)
+    const handlePlaying = () => video.removeAttribute('poster')
+
+    video.addEventListener('loadeddata', handleReady)
+    video.addEventListener('canplay', handleReady)
+    video.addEventListener('playing', handlePlaying)
+    document.addEventListener('visibilitychange', handleReady)
+
+    if (video.readyState >= 2) handleReady()
+
+    return () => {
+      video.removeEventListener('loadeddata', handleReady)
+      video.removeEventListener('canplay', handleReady)
+      video.removeEventListener('playing', handlePlaying)
+      document.removeEventListener('visibilitychange', handleReady)
     }
-
-    video.addEventListener('loadeddata', play)
-    if (video.readyState >= 2) play()
-
-    return () => video.removeEventListener('loadeddata', play)
   }, [])
 
   return (
@@ -48,7 +68,6 @@ export default function Hero() {
               <video
                 ref={videoRef}
                 src={campaignVideo}
-                poster={heroPoster}
                 preload="auto"
                 autoPlay
                 muted

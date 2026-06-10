@@ -213,7 +213,7 @@ main > section {
   inset: 28px 22px 22px;
   border-radius: 10px;
   overflow: hidden;
-  background: #111;
+  background: #000;
 }
 
 .hero-campaign-video {
