@@ -16,8 +16,21 @@ const team = [
     instagram: 'https://www.instagram.com/marleenyen',
   },
   { name: 'Dori (Michelle)', role: 'Product Designer', photo: dori },
-  { name: 'Viraj Bhanage', role: 'iOS Developer', photo: viraj },
-  { name: 'Belvanatha Gargita', role: 'iOS Developer', photo: belvanatha },
+  {
+    name: 'Viraj Bhanage',
+    role: 'iOS Developer',
+    photo: viraj,
+    linkedin: 'https://www.linkedin.com/in/viraj-bhanage-40b34a321/',
+    x: 'https://x.com/viraj_Bhanage_',
+    instagram: 'https://www.instagram.com/bhanage_viraj/',
+  },
+  {
+    name: 'Belvanatha Gargita',
+    role: 'iOS Developer',
+    photo: belvanatha,
+    linkedin: 'https://www.linkedin.com/in/belvanatha-gargita/',
+    instagram: 'https://www.instagram.com/belvasatwikananda',
+  },
   {
     name: 'Andrian',
     role: 'iOS Developer',
@@ -58,6 +71,14 @@ function InstagramIcon() {
       <rect width="24" height="24" rx="6" fill="url(#ig)" />
       <circle cx="12" cy="12" r="4.5" fill="none" stroke="white" strokeWidth="1.8" />
       <circle cx="17.2" cy="6.8" r="1.2" fill="white" />
+    </svg>
+  )
+}
+
+function XIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
   )
 }
@@ -139,6 +160,17 @@ export default function TeamModal({ open, onClose }) {
                           aria-label={`${member.name} on LinkedIn`}
                         >
                           <LinkedInIcon />
+                        </a>
+                      )}
+                      {member.x && (
+                        <a
+                          href={member.x}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${member.name} on X`}
+                          className="team-social-x"
+                        >
+                          <XIcon />
                         </a>
                       )}
                       {member.instagram && (
