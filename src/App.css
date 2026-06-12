@@ -126,12 +126,19 @@ main > section.section-hero {
   letter-spacing: 0.04em;
   padding: 14px 32px;
   border-radius: 999px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.35s var(--ease-spring),
+    box-shadow 0.35s var(--ease-smooth);
 }
 
 .btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.97);
+  transition-duration: 0.12s;
 }
 
 .btn-large {
@@ -243,6 +250,7 @@ main > section.section-hero {
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
   align-items: stretch;
+  perspective: 1400px;
 }
 
 .feature-card {
@@ -541,8 +549,32 @@ main > section.section-hero {
 .reflection-cta .cta-title {
   font-size: clamp(24px, 4vw, 40px);
   font-weight: 800;
-  margin: 0 0 20px;
+  margin: 0 0 12px;
   letter-spacing: -0.02em;
+}
+
+.reflection-tagline {
+  font-size: clamp(14px, 2.2vw, 17px);
+  line-height: 1.6;
+  max-width: 420px;
+  margin: 0 auto 24px;
+  opacity: 0.92;
+}
+
+.site-instagram {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.site-instagram:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* Team modal */
@@ -965,7 +997,18 @@ main > section.section-hero {
 
   .reflection-cta .cta-title {
     font-size: clamp(20px, 6vw, 28px);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+  }
+
+  .reflection-tagline {
+    font-size: 14px;
+    margin-bottom: 18px;
+    padding-inline: 8px;
+  }
+
+  .site-instagram {
+    margin-top: 16px;
+    font-size: 13px;
   }
 
   /* Team modal */

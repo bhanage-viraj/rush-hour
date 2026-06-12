@@ -1,5 +1,5 @@
 import logo from '../assets/logo.png'
-import { TESTFLIGHT_URL } from '../constants/links'
+import { TESTFLIGHT_URL, INSTAGRAM_URL } from '../constants/links'
 import LazyVideo from './LazyVideo'
 import reflectionFive from '../assets/reflection/five.mp4'
 import reflectionTwo from '../assets/reflection/two.mp4'
@@ -42,6 +42,9 @@ export default function Reflection() {
         <div className="reflection-cta anim-item">
           <img src={logo} alt="Rush Hour" className="cta-logo" />
           <h2 className="cta-title">Ready to Show Up?</h2>
+          <p className="reflection-tagline">
+            Record your focus. Stay accountable. Reflect on your effort.
+          </p>
           <a
             href={TESTFLIGHT_URL}
             className="btn-primary btn-large"
@@ -49,6 +52,15 @@ export default function Reflection() {
             rel="noopener noreferrer"
           >
             Join TestFlight
+          </a>
+          <a
+            href={INSTAGRAM_URL}
+            className="site-instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow Rush Hour on Instagram"
+          >
+            @rushhour.app
           </a>
         </div>
       </div>

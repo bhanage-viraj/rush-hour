@@ -1,5 +1,5 @@
 import logo from '../assets/logo.png'
-import { TESTFLIGHT_URL } from '../constants/links'
+import { TESTFLIGHT_URL, INSTAGRAM_URL } from '../constants/links'
 
 function scrollToSection(event, selector) {
   event.preventDefault()
@@ -21,6 +21,13 @@ export default function Header({ onOpenTeam }) {
           <button type="button" className="header-link" onClick={onOpenTeam}>
             OUR TEAM
           </button>
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            INSTAGRAM
+          </a>
         </nav>
 
         <a

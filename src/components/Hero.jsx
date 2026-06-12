@@ -79,7 +79,7 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="hero-media">
+        <div className="hero-media anim-item anim-fade-only">
           <div className="hero-video">
             <img src={videoframe} alt="" className="hero-video-frame" aria-hidden="true" />
             <div className="hero-video-inner">
