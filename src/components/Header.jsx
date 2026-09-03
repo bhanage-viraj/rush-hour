@@ -1,7 +1,13 @@
 import logo from '../assets/logo.png'
 import { TESTFLIGHT_URL, INSTAGRAM_URL } from '../constants/links'
 
+function isHome() {
+  const path = window.location.pathname.replace(/\/+$/, '') || '/'
+  return path === '/'
+}
+
 function scrollToSection(event, selector) {
+  if (!isHome()) return
   event.preventDefault()
   const site = document.querySelector('.site')
   const target = document.querySelector(selector)
@@ -15,7 +21,7 @@ export default function Header({ onOpenTeam }) {
     <header className="header">
       <div className="header-inner">
         <nav className="header-nav">
-          <a href="#about" onClick={(e) => scrollToSection(e, '#about')}>
+          <a href="/#about" onClick={(e) => scrollToSection(e, '#about')}>
             ABOUT
           </a>
           <button type="button" className="header-link" onClick={onOpenTeam}>
@@ -28,10 +34,12 @@ export default function Header({ onOpenTeam }) {
           >
             INSTAGRAM
           </a>
+          <a href="/privacy">PRIVACY</a>
+          <a href="/support">SUPPORT</a>
         </nav>
 
         <a
-          href="#about"
+          href="/"
           className="header-logo"
           aria-label="Rush Hour home"
           onClick={(e) => scrollToSection(e, '#about')}

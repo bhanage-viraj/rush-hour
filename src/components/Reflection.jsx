@@ -1,5 +1,6 @@
 import logo from '../assets/logo.png'
 import { TESTFLIGHT_URL } from '../constants/links'
+import LegalLinks from './LegalLinks'
 import LazyVideo from './LazyVideo'
 import reflectionFive from '../assets/reflection/five.mp4'
 import reflectionTwo from '../assets/reflection/two.mp4'
@@ -53,6 +54,7 @@ export default function Reflection() {
           >
             Join TestFlight
           </a>
+          <LegalLinks />
         </div>
       </div>
     </section>
