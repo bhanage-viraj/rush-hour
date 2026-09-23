@@ -1,5 +1,5 @@
 import logo from '../assets/logo.png'
-import { TESTFLIGHT_URL } from '../constants/links'
+import { APP_STORE_URL } from '../constants/links'
 
 export default function CTA() {
   return (
@@ -7,12 +7,12 @@ export default function CTA() {
       <img src={logo} alt="Rush Hour" className="cta-logo" />
       <h2 className="cta-title">Ready to Show Up?</h2>
       <a
-        href={TESTFLIGHT_URL}
+        href={APP_STORE_URL}
         className="btn-primary btn-large"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Join TestFlight
+        Get the App
       </a>
     </section>
   )

@@ -1,5 +1,5 @@
 import logo from '../assets/logo.png'
-import { TESTFLIGHT_URL, INSTAGRAM_URL } from '../constants/links'
+import { APP_STORE_URL, INSTAGRAM_URL } from '../constants/links'
 
 function isHome() {
   const path = window.location.pathname.replace(/\/+$/, '') || '/'
@@ -48,12 +48,12 @@ export default function Header({ onOpenTeam }) {
         </a>
 
         <a
-          href={TESTFLIGHT_URL}
+          href={APP_STORE_URL}
           className="header-cta"
           target="_blank"
           rel="noopener noreferrer"
         >
-          JOIN TESTFLIGHT
+          GET THE APP
         </a>
       </div>
     </header>

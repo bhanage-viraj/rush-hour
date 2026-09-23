@@ -1,5 +1,5 @@
 import logo from '../assets/logo.png'
-import { TESTFLIGHT_URL } from '../constants/links'
+import { APP_STORE_URL } from '../constants/links'
 import LegalLinks from './LegalLinks'
 import LazyVideo from './LazyVideo'
 import reflectionFive from '../assets/reflection/five.mp4'
@@ -47,12 +47,12 @@ export default function Reflection() {
             Record your focus. Stay accountable. Reflect on your effort.
           </p>
           <a
-            href={TESTFLIGHT_URL}
+            href={APP_STORE_URL}
             className="btn-primary btn-large"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Join TestFlight
+            Get the App
           </a>
           <LegalLinks />
         </div>

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import videoframe from '../assets/videoframe.png'
-import { TESTFLIGHT_URL } from '../constants/links'
+import { APP_STORE_URL } from '../constants/links'
 
 const CAMPAIGN_VIDEO = '/campaign-video.mp4'
 const CAMPAIGN_POSTER = '/campaign-poster.jpg'
@@ -70,12 +70,12 @@ export default function Hero() {
             accountable and reflect on your work.
           </p>
           <a
-            href={TESTFLIGHT_URL}
+            href={APP_STORE_URL}
             className="btn-primary hero-cta anim-item"
             target="_blank"
             rel="noopener noreferrer"
           >
-            JOIN TESTFLIGHT
+            GET THE APP
           </a>
         </div>
 
