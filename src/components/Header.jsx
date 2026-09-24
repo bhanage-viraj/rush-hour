@@ -1,5 +1,6 @@
 import logo from '../assets/logo.png'
-import { APP_STORE_URL, INSTAGRAM_URL } from '../constants/links'
+import { INSTAGRAM_URL } from '../constants/links'
+import AppStoreBadge from './AppStoreBadge'
 
 function isHome() {
   const path = window.location.pathname.replace(/\/+$/, '') || '/'
@@ -47,14 +48,7 @@ export default function Header({ onOpenTeam }) {
           <img src={logo} alt="Rush Hour" />
         </a>
 
-        <a
-          href={APP_STORE_URL}
-          className="header-cta"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          GET THE APP
-        </a>
+        <AppStoreBadge className="header-cta" />
       </div>
     </header>
   )

@@ -1,5 +1,5 @@
 import logo from '../assets/logo.png'
-import { APP_STORE_URL } from '../constants/links'
+import AppStoreBadge from './AppStoreBadge'
 import LegalLinks from './LegalLinks'
 import LazyVideo from './LazyVideo'
 import reflectionFive from '../assets/reflection/five.mp4'
@@ -46,14 +46,7 @@ export default function Reflection() {
           <p className="reflection-tagline">
             Record your focus. Stay accountable. Reflect on your effort.
           </p>
-          <a
-            href={APP_STORE_URL}
-            className="btn-primary btn-large"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Get the App
-          </a>
+          <AppStoreBadge />
           <LegalLinks />
         </div>
       </div>

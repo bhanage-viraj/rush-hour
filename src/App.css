@@ -100,21 +100,32 @@ main > section.section-hero {
   width: auto;
 }
 
+.app-store-badge {
+  display: inline-block;
+  line-height: 0;
+  transition: transform 0.2s;
+}
+
+.app-store-badge img {
+  display: block;
+  height: 54px;
+  width: auto;
+}
+
+.app-store-badge:hover {
+  transform: translateY(-2px);
+}
+
 .header-cta {
   justify-self: end;
-  background: var(--black);
-  color: var(--white);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  padding: 12px 24px;
-  border-radius: 999px;
-  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.header-cta img {
+  height: 40px;
 }
 
 .header-cta:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 /* Buttons */
@@ -916,9 +927,10 @@ main > section.section-hero {
   .header-cta {
     grid-area: cta;
     justify-self: end;
-    font-size: 11px;
-    padding: 10px 14px;
-    white-space: nowrap;
+  }
+
+  .header-cta img {
+    height: 34px;
   }
 
   .header-nav a,
@@ -1199,9 +1211,8 @@ main > section.section-hero {
     font-size: 11px;
   }
 
-  .header-cta {
-    font-size: 10px;
-    padding: 9px 12px;
+  .header-cta img {
+    height: 32px;
   }
 
   .header-logo img {
@@ -1274,9 +1285,8 @@ main > section.section-hero {
 }
 
 @media (max-width: 380px) {
-  .header-cta {
-    font-size: 9px;
-    padding: 8px 10px;
+  .header-cta img {
+    height: 28px;
   }
 
   .header-nav {

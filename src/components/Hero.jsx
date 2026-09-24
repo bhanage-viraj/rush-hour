@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import videoframe from '../assets/videoframe.png'
-import { APP_STORE_URL } from '../constants/links'
+import AppStoreBadge from './AppStoreBadge'
 
 const CAMPAIGN_VIDEO = '/campaign-video.mp4'
 const CAMPAIGN_POSTER = '/campaign-poster.jpg'
@@ -69,14 +69,7 @@ export default function Hero() {
             Turn your focus sessions into a timelapse that helps you stay
             accountable and reflect on your work.
           </p>
-          <a
-            href={APP_STORE_URL}
-            className="btn-primary hero-cta anim-item"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GET THE APP
-          </a>
+          <AppStoreBadge className="hero-cta anim-item" />
         </div>
 
         <div className="hero-media anim-item anim-fade-only">
