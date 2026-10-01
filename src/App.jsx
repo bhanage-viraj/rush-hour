@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import HowItWorks from './components/HowItWorks'
@@ -59,6 +60,7 @@ function App() {
       {page === 'support' && <Support />}
       {page === 'home' && <Home />}
       <TeamModal open={teamOpen} onClose={() => setTeamOpen(false)} />
+      <Analytics />
     </div>
   )
 }
